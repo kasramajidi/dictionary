@@ -7,12 +7,12 @@ interface UnsplashImage {
   };
 }
 
-export default function ImageApi(word: string) {
+export default function UseImage(word: string) {
   return useQuery<UnsplashImage>({
     queryKey: ["image", word],
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://api.unsplash.com/photos/random?query=${word}&client_id=ZkXL7H08Pr2POftgKWM_Xi0IzRmsYZtu62R5lEAexfc`
+        `https://api.unsplash.com/photos/random?query=${word}&client_id=asGgUQqvzoR0gGwDvuaMjHgHOjdE21D8LdiB2tksTAY`
       );
       return data;
     },

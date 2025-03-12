@@ -10,7 +10,9 @@ interface Definition {
 
 interface Meaning {
   partOfSpeech: string;
-  definition: Definition[];
+  definitions: Definition[];
+  synonyms: string[];
+  antonyms: string[];
 }
 
 interface WordData {
@@ -18,7 +20,7 @@ interface WordData {
   meanings: Meaning[];
 }
 
-export default function Data(word: string) {
+export default function UseData(word: string) {
   return useQuery<WordData>({
     queryKey: ["wordData", word],
     queryFn: async () => {
@@ -27,6 +29,6 @@ export default function Data(word: string) {
       );
       return data[0];
     },
-    enabled: word.length > 0,
+    enabled: word.length > 3,
   });
 }
